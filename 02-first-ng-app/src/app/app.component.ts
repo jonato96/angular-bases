@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '02-first-ng-app';
+  public title: string = 'Hola Mundo';
+  public counter: number = 10;
 }
