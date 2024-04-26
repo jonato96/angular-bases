@@ -1,1 +1,23 @@
-<p>list works!</p>
+<h3>Listado de Heroes</h3>
+
+<h4>Normal</h4>
+<ul class="mt-2 list-group">
+    <li class="list-group-utem">Spiderman</li>
+    <li class="list-group-utem">Hulk</li>
+    <li class="list-group-utem">IronMan</li>
+</ul>
+
+<hr>
+
+<h4>NgFor</h4>
+<h4>Heroe eliminado</h4>
+<h4>No ha borrado nada</h4>
+
+<button class="btn btn-outline-danger">
+    Borrar ultimo heroe
+</button>
+
+<ul class="mt-2 list-group">
+    <li *ngFor="let name of heroNames"
+    class="list-group-utem">{{name}}</li>    
+</ul>
