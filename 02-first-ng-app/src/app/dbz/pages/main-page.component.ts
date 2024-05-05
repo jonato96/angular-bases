@@ -11,6 +11,18 @@ import { DbzService } from '../services/dbz.service';
 
 export class MainPageComponent {
 
-    public dbzService = inject(DbzService);
+    private dbzService = inject(DbzService);
+
+    get character(): Character[] {
+        return [...this.dbzService.character];
+    }
+
+    onDeleteCharacter(id: string): void {
+        this.dbzService.deleteCharacterById(id);
+    }
+
+    onNewCharacter(character: Character): void {
+        this.dbzService.addCharacter(character);
+    }
 
 }
