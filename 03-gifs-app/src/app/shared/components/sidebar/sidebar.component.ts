@@ -10,8 +10,12 @@ export class SidebarComponent {
 
   private gifService = inject(GifsService);
 
-  get tags() {
+  get tags(): string[] {
     return this.gifService.tagsHistory;
+  }
+
+  reSearch(tag: string): void {
+    this.gifService.searchTag(tag);
   }
 
 }
