@@ -5,7 +5,7 @@ import { Country } from '../interfaces/country';
 
 
 @Injectable({providedIn: 'root'})
-export class ServiceNameService {
+export class CountriesService {
 
     private http = inject(HttpClient);
 
