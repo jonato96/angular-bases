@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class UncommonPageComponent {
 
-  // i18n Select
+  // i18nSelect
   public name: string = 'Jonathan';
   public gender: 'male' | 'female' = 'male';
   public invitationMap = {
@@ -19,5 +19,19 @@ export class UncommonPageComponent {
     this.name = 'Elena';
     this.gender = 'female';
   }
+
+  // i18nPlural
+  public clients: string[] = ['Maria', 'Pedro', 'Fernando', 'Hernando', 'Melissa', 'Natalia'];
+  public clientsMap = {
+    '=0': 'no tenemos ningun cliente esperando.',
+    '=1': 'tenemos un cliente esperando.',
+    'other': 'tenemos # clientes esperando.'
+  }
+
+  deleteClient(): void {
+    this.clients.shift();
+  }
+
+
 
 }
