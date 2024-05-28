@@ -17,8 +17,8 @@ export class UncommonPageComponent {
   }
 
   changeClient(): void {
-    this.name = 'Elena';
-    this.gender = 'female';
+    this.name = this.name.match('Elena') ? 'Jonathan' : 'Elena';
+    this.gender = this.gender.match('female') ? 'male' : 'female';
   }
 
   // i18nPlural
@@ -30,8 +30,12 @@ export class UncommonPageComponent {
   }
 
   deleteClient(): void {
+    if (this.clients.length === 0) this.clients = ['Maria', 'Pedro', 'Fernando', 'Hernando', 'Melissa', 'Natalia'];
     this.clients.shift();
   }
+
+  //Slice Pipe
+  public products: string[] = ['SmartPhone', 'Laptop', 'Monitor', 'Keyboard', 'Mouse'];
 
   //KeyValue Pipe
   public person = {
