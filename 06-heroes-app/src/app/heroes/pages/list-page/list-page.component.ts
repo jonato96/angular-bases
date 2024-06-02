@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Hero } from '../../interfaces/hero.interface';
-import { HeroresService } from '../../services/heroes.service';
+import { HeroesService } from '../../services/heroes.service';
 
 @Component({
   selector: 'app-list-page',
@@ -10,7 +10,7 @@ import { HeroresService } from '../../services/heroes.service';
 export class ListPageComponent implements OnInit{
   
   public heroes: Hero[] = [];
-  private heroesService = inject(HeroresService);
+  private heroesService = inject(HeroesService);
   
   ngOnInit(): void {
     this.heroesService.getHeroes()
