@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Hero, Publisher } from '../../interfaces/hero.interface';
 
 @Component({
   selector: 'app-new-page',
@@ -6,6 +8,18 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class NewPageComponent {
+
+  private formBuilder = inject(FormBuilder);
+
+  public heroForm = this.formBuilder.nonNullable.group<Hero>({
+    id: '',
+    superhero: '',
+    publisher: Publisher.DCComics,
+    alter_ego: '',    
+    first_appearance: '',
+    characters: '',
+    alt_img: ''    
+  });
 
   public publishers = [
     {
