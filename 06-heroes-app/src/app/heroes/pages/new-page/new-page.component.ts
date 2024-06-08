@@ -30,4 +30,8 @@ export class NewPageComponent {
     }
   ];
 
+  onSubmit(): void {
+    
+  }
+
 }
