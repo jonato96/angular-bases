@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Hero, Publisher } from '../../interfaces/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
+
 
 @Component({
   selector: 'app-new-page',
@@ -10,6 +12,7 @@ import { Hero, Publisher } from '../../interfaces/hero.interface';
 export class NewPageComponent {
 
   private formBuilder = inject(FormBuilder);
+  private heroesService = inject(HeroesService);
 
   public heroForm = this.formBuilder.nonNullable.group<Hero>({
     id: '',
@@ -30,7 +33,13 @@ export class NewPageComponent {
     }
   ];
 
+  get currentHero(): Hero {
+    const hero = this.heroForm.value as Hero;
+    return hero;
+  }
+
   onSubmit(): void {
+    if (this.heroForm.invalid) return;
     
   }
 
