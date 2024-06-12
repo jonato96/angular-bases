@@ -22,7 +22,10 @@ export class BasicPageComponent {
   });
 
   onSave(): void {
-    if (this.myForm.invalid) return;
+    if (this.myForm.invalid) {
+      this.myForm.markAllAsTouched;
+      return;
+    }
     console.log(this.myForm.value);
     this.myForm.reset({name: '', price: 0, inStorage: 0});
   }
