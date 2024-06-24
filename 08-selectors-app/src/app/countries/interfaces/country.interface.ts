@@ -2,7 +2,7 @@ export enum Region {
     Africa      = 'Africa',
     Americas    = 'Americas',
     Asia        = 'Asia',
-    Europe      = 'Europa',
+    Europe      = 'Europe',
     Oceania     = 'Oceania'
 }
 
