@@ -1,13 +1,13 @@
-const { writeFileSync, mkdirSync} = requiere('fs');
+const { writeFileSync, mkdirSync} = require('fs');
 
-requiere('dovenv').config();
+require('dotenv').config();
 
-const targetPath = './src/environmets/environments.ts';
+const targetPath = './src/environments/environments.ts';
 const envFileContent = `
     export const environmet = {
         mapbox_key: "${process.env['MAPBOX_KEY']}"
     };
 `;
 
-mkdirSync('./src/environmets', {recursive: true});
+mkdirSync('./src/environments', {recursive: true});
 writeFileSync(targetPath, envFileContent);
