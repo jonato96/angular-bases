@@ -13,6 +13,7 @@ import { PropertiesPageComponent } from './pages/properties-page/properties-page
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.component';
 import { environment } from '../../environments/environments';
+import { CounterAloneComponent } from '../alone/components/counter-alone/counter-alone.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { environment } from '../../environments/environments';
   ],
   imports: [
     CommonModule,
-    MapsRoutingModule
+    MapsRoutingModule,
+    CounterAloneComponent
   ]
 })
 export class MapsModule { }
