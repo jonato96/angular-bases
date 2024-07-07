@@ -8,7 +8,10 @@
     top: 20px;
     right: 20px;
     cursor: pointer;
+}
 
+.list-group-item {
+    color: white;
 }
 
 button {
