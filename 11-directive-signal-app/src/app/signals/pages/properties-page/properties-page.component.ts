@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, effect, OnDestroy, OnInit, signal } from '@angular/core';
 import { User } from '../../interfaces/user-request.interface';
 import { CurrencyPipe } from '@angular/common';
 
@@ -6,8 +6,10 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './properties-page.component.html',
   styleUrl: './properties-page.component.css'
 })
-export class PropertiesPageComponent {
-
+export class PropertiesPageComponent implements OnDestroy, OnInit {
+  
+  public counter =  signal(10);
+  
   public user = signal<User>({
     id: 1,
     email: 'jonato@mail.com',
@@ -15,8 +17,25 @@ export class PropertiesPageComponent {
     last_name: 'Sanchez',
     avatar: 'https://reqres.in/img/faces/1-image.jpg'
   });
-
+  
   public fullName = computed( () => `${this.user().first_name} ${this.user().last_name}`)
+  
+  public userChangedEffect = effect( () => {
+    console.log(`${this.user().first_name} - ${this.counter()}`)
+  });
+
+  ngOnInit(): void {
+    //justify automatic clean 
+    setInterval( () => {
+      this.counter.update( current => current + 1);
+      // if (this.counter() == 15) this.userChangedEffect.destroy();
+    },1000);
+  }
+  
+  ngOnDestroy(): void {
+    //manually but its destroy automatic
+    this.userChangedEffect.destroy();
+  }
 
   onFieldUpdate(field: keyof User, value: string) {
     // this.user.set({
@@ -52,6 +71,10 @@ export class PropertiesPageComponent {
     });
     
     console.log(field, value);
+  }
+
+  increaseBy(value: number) {
+    this.counter.update( current => current + value);
   }
 
 }
