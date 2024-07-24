@@ -43,6 +43,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# mongo db
+$ docker compose up -d
 ```
 
 ## Test
