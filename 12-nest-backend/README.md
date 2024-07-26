@@ -46,6 +46,8 @@ $ npm run start:prod
 
 # mongo db
 $ docker compose up -d
+
+copy .env.template and rename to .env
 ```
 
 ## Test
