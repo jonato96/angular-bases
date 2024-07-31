@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 @Schema()
 export class User {
 
-    // _id: string created by mongo
+    _id?: string //created by mongo
 
     @Prop({unique: true, required: true})
     email: string;
