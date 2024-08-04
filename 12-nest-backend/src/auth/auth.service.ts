@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, InternalServerErrorException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, InternalServerErrorException, UnauthorizedException, UseGuards } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { JwtService } from '@nestjs/jwt';
 import { Model } from 'mongoose';
@@ -10,6 +10,7 @@ import { User } from './entities/user.entity';
 
 import { JwtPayload } from './interfaces/jwt-payload';
 import { LoginResponse } from './interfaces/login-response';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -81,8 +82,8 @@ export class AuthService {
 
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  findAll(): Promise<User[]> {
+    return this.userModel.find();
   }
 
   findOne(id: number) {
@@ -101,4 +102,11 @@ export class AuthService {
       const token = this.jwtService.sign(payload);
       return token;
   }
+
+  async findUserById( id: string) {
+    const user =  await this.userModel.findById(id);
+    const { password, ...rest} = user.toJSON();
+    return rest;
+  }
+
 }
