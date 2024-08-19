@@ -32,4 +32,32 @@
         
     </div>
 
+    <div class="bg-white rounded shadow p-10">
+
+        <ul>
+            @for (framework of frameworks(); track frameworks; let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count) {
+                <li [class] = "{
+                    'bg-red-400': even && !first && !last,
+                    'bg-blue-400': odd && !first && !last,
+                    'bg-yellow-400': first || last,
+                }">
+                    {{ i + 1 }}/{{ count }} - {{ framework }}
+                </li>
+            }
+        </ul>
+        
+    </div>
+
+    <div class="bg-white rounded shadow p-10">
+
+        <ul>
+            @for (framework of frameworks2(); track $index) {
+                <li>{{ framework }}</li>
+            } @empty {
+                <li> No hay frameworks disponibles</li>
+            }
+        </ul>
+        
+    </div>
+
 </section>
