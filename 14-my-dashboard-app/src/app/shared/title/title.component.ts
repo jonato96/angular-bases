@@ -5,7 +5,7 @@ import { booleanAttribute, Component, Input } from '@angular/core';
   standalone: true,
   imports: [],
   template:  `
-    <h1 class="text-3xl mb-5"> {{ title }} - {{ withShadow }} </h1>
+    <h1 class="text-3xl mb-5"> {{ title }} </h1>
   `,
   styles: ``
 })
