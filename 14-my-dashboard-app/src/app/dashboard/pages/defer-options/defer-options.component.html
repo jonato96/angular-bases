@@ -17,3 +17,91 @@
     }
 
 </section>
+
+<section>    
+    <hr class="my-2">
+    <button 
+     #bntInteraction
+     class="p-2 bg-blue-500 hover: bg-blue-700 transition-all rounded text-white my-2">Click me</button>
+
+    @defer (on interaction (bntInteraction)) {
+
+        <app-heavy-loader-fast cssClass="bg-blue-500 h-20">
+            <span>On Interaction</span>
+        </app-heavy-loader-fast>
+
+    } @placeholder {
+        <div class="w-full h-20 bg-purple-100">
+            Placeholder Div
+        </div>
+    }
+
+</section>
+
+<section>    
+    <hr class="my-2">    
+
+    @defer (on hover) {
+
+        <app-heavy-loader-fast cssClass="bg-blue-500 h-20">
+            <span>On hover</span>
+        </app-heavy-loader-fast>
+
+    } @placeholder {
+        <div class="w-full h-20 bg-purple-100">
+            Placeholder Div
+        </div>
+    }
+
+</section>
+
+<section>    
+    <hr class="my-2">    
+
+    @defer (on immediate) {
+
+        <app-heavy-loader-fast cssClass="bg-blue-500 h-20">
+            <span>On Immidiate</span>
+        </app-heavy-loader-fast>
+
+    } @placeholder {
+        <div class="w-full h-20 bg-purple-100">
+            Placeholder Div
+        </div>
+    }
+
+</section>
+
+<section>    
+    <hr class="my-2">    
+
+    @defer (on timer(2000)) {
+
+        <app-heavy-loader-fast cssClass="bg-green-500 h-20">
+            <span>On timer</span>
+        </app-heavy-loader-fast>
+
+    } @placeholder {
+        <div class="w-full h-20 bg-purple-100">
+            2 segundos
+        </div>
+    }
+
+</section>
+
+<section>    
+    <hr class="my-2">    
+
+    @defer (on hover; prefetch on idle) {
+
+        <app-heavy-loader-fast cssClass="bg-green-500 h-20">
+            <span>On hover, On idle</span>
+        </app-heavy-loader-fast>
+
+    } @placeholder {
+        <div class="w-full h-20 bg-purple-100">
+            2 segundos
+        </div>
+    }
+
+</section>
