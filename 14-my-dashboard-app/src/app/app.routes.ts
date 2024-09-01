@@ -52,7 +52,14 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/pages/input-output/input-output.component'),
       },
       {
-        path:'', redirectTo: 'control-flow', pathMatch: 'full',
+        path: 'material',
+        title: 'Angular Material Component',
+        loadComponent: () => import('./dashboard/pages/material/material.component'),
+      },
+      {
+        path:'',
+        redirectTo: 'control-flow',
+        pathMatch: 'full',
       }
     ]
   },
