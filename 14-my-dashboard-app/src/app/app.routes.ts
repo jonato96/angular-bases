@@ -58,7 +58,11 @@ export const routes: Routes = [
       },
       {
         path:'',
-        redirectTo: 'control-flow',
+        redirectTo: (route) => {
+          console.log(route);
+          return '/dashboard/material'
+
+        },
         pathMatch: 'full',
       }
     ]
